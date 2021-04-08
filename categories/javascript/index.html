@@ -4,6 +4,8 @@
 
 <html lang="en-US" 
   
+    mode="dark"
+  
 >
 
   <!--
@@ -200,7 +202,7 @@
 
       
       <a href="https://github.com/O1dMate" aria-label="github"
-        class="order-3"
+        
         target="_blank" rel="noopener">
         <i class="fab fa-github-alt"></i>
       </a>
@@ -211,7 +213,7 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        class="order-4"
+        
         target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
@@ -223,7 +225,7 @@
       
       <a href="
           javascript:location.href = 'mailto:' + ['o1dmate','protonmail.com'].join('@')" aria-label="email"
-        class="order-5"
+        
         >
         <i class="fas fa-envelope"></i>
       </a>
@@ -234,7 +236,7 @@
 
       
       <a href="/feed.xml" aria-label="rss"
-        class="order-6"
+        
         >
         <i class="fas fa-rss"></i>
       </a>
@@ -242,159 +244,6 @@
 
     
 
-    
-      
-        <span class="icon-border order-2"></span>
-      
-
-      <span id="mode-toggle-wrapper" class="order-1">
-        <!--
-  Switch the mode between dark and light.
--->
-
-<i class="mode-toggle fas fa-adjust"></i>
-
-<script type="text/javascript">
-
-  class ModeToggle {
-    static get MODE_KEY() { return "mode"; }
-    static get DARK_MODE() { return "dark"; }
-    static get LIGHT_MODE() { return "light"; }
-
-    constructor() {
-      if (this.hasMode) {
-        if (this.isDarkMode) {
-          if (!this.isSysDarkPrefer) {
-            this.setDark();
-          }
-        } else {
-          if (this.isSysDarkPrefer) {
-            this.setLight();
-          }
-        }
-      }
-
-      var self = this;
-
-      /* always follow the system prefers */
-      this.sysDarkPrefers.addListener(function() {
-        if (self.hasMode) {
-          if (self.isDarkMode) {
-            if (!self.isSysDarkPrefer) {
-              self.setDark();
-            }
-
-          } else {
-            if (self.isSysDarkPrefer) {
-              self.setLight();
-            }
-          }
-
-          self.clearMode();
-        }
-
-        self.updateMermaid();
-      });
-
-    } /* constructor() */
-
-
-    setDark() {
-      $('html').attr(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE);
-      sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE);
-    }
-
-    setLight() {
-      $('html').attr(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE);
-      sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE);
-    }
-
-    clearMode() {
-      $('html').removeAttr(ModeToggle.MODE_KEY);
-      sessionStorage.removeItem(ModeToggle.MODE_KEY);
-    }
-
-    get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
-
-    get isSysDarkPrefer() { return this.sysDarkPrefers.matches; }
-
-    get isDarkMode() { return this.mode == ModeToggle.DARK_MODE; }
-
-    get isLightMode() { return this.mode == ModeToggle.LIGHT_MODE; }
-
-    get hasMode() { return this.mode != null; }
-
-    get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); }
-
-    /* get the current mode on screen */
-    get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer) ) {
-        return ModeToggle.DARK_MODE;
-      } else {
-        return ModeToggle.LIGHT_MODE;
-      }
-    }
-
-    updateMermaid() {
-      if (typeof mermaid !== "undefined") {
-        let expectedTheme = (this.modeStatus === ModeToggle.DARK_MODE? "dark" : "default");
-        let config = { theme: expectedTheme };
-
-        /* re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */
-        $(".mermaid").each(function() {
-          let svgCode = $(this).prev().children().html();
-          $(this).removeAttr("data-processed");
-          $(this).html(svgCode);
-        });
-
-        mermaid.initialize(config);
-        mermaid.init(undefined, ".mermaid");
-      }
-    }
-
-    flipMode() {
-      if (this.hasMode) {
-        if (this.isSysDarkPrefer) {
-          if (this.isLightMode) {
-            this.clearMode();
-          } else {
-            this.setLight();
-          }
-
-        } else {
-          if (this.isDarkMode) {
-            this.clearMode();
-          } else {
-            this.setDark();
-          }
-        }
-
-      } else {
-        if (this.isSysDarkPrefer) {
-          this.setLight();
-        } else {
-          this.setDark();
-        }
-      }
-
-      this.updateMermaid();
-
-    } /* flipMode() */
-
-  } /* ModeToggle */
-
-  let toggle = new ModeToggle();
-
-  $(".mode-toggle").click(function() {
-
-    toggle.flipMode();
-
-  });
-
-</script>
-
-      </span>
     
 
   </div> <!-- .sidebar-bottom -->
@@ -548,6 +397,32 @@
 
 
 
+
+  
+
+    <div id="access-lastmod" class="post">
+      <span>Recent Update</span>
+      <ul class="post-content pl-0 pb-1 ml-1 mt-2">
+
+      
+        
+        
+        
+        <li><a href="/posts/nodejs-crypto/">NodeJS Crypto Module</a></li>
+      
+        
+        
+        
+        <li><a href="/posts/openssl-testing-cipher-suite/">OpenSSL Testing a Cipher Suite</a></li>
+      
+        
+        
+        
+        <li><a href="/posts/openssl-testing-signature-algorithm/">OpenSSL Testing a Signature Algorithm</a></li>
+      
+
+      </ul>
+    </div> <!-- #access-lastmod -->
 
   
 
