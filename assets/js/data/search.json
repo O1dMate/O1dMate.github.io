@@ -1,0 +1,94 @@
+[
+  
+  {
+    "title": "TLS Server Signature Algorithm",
+    "url": "/posts/tls-server-signature-algorithm/",
+    "categories": "security, certificates",
+    "tags": "openssl, certificate, host, security, cryptography, HTTPS, signature, algorithm",
+    "date": "2021-04-08 17:30:12 +1000",
+    
+
+
+
+
+
+    "snippet": "In this post we’ll look at what the Server Signature Algorithm in TLS is for.This guide can get technical at times so it’s recommended that you understand the follow terms are as they will be assumed knowledge:  RSA (Rivest–Shamir–Adleman)  ECC (Elliptic-Curve-Cryptography)  Symmetric Cryptograph..."
+  },
+  
+  {
+    "title": "OpenSSL Creating a Host Certificate",
+    "url": "/posts/openssl-creating-a-host-certificate/",
+    "categories": "security, certificates",
+    "tags": "openssl, certificate, host, security, cryptography, HTTPS",
+    "date": "2021-04-07 21:03:48 +1000",
+    
+
+
+
+
+
+    "snippet": "In this post we’ll look at how to create our own Host Certificates using OpenSSL. These certificates can be used on web-servers for enabling TLS.A valid CA Certificate and Private key will be required to follow this tutorial. If you do not have these, you can create them by following this guide. ..."
+  },
+  
+  {
+    "title": "OpenSSL Creating a Certificate Authority (CA)",
+    "url": "/posts/openssl-creating-a-ca/",
+    "categories": "security, certificates",
+    "tags": "openssl, CA, certificate, security, cryptography",
+    "date": "2021-04-07 19:17:22 +1000",
+    
+
+
+
+
+
+    "snippet": "In this post we’ll look at how to create our own Certificate Authority (CA) using OpenSSL.  Generating a Private Key          List OpenSSL Support Elliptic Curves      Elliptic Curve Private Key      RSA Private Key        Generating a Certificate          Configuration File      Creating the Cer..."
+  },
+  
+  {
+    "title": "OpenSSL Testing a Signature Algorithm",
+    "url": "/posts/openssl-testing-signature-algorithm/",
+    "categories": "security, certificates",
+    "tags": "security, cryptography, openssl, signature, algorithm",
+    "date": "2021-04-07 00:44:00 +1000",
+    
+
+
+
+
+
+    "snippet": "In this post we’ll look at how to test whether a server supports a certain signature algorithm when using TLS.  Testing RSA PKCS1 Signature Algorithm  Testing RSA PSS RSAE Signature Algorithm  Testing DSA Signature Algorithm  Testing ECDSA Signature Algorithm  Verifying ResultsBelow we have the S..."
+  },
+  
+  {
+    "title": "OpenSSL Testing a Cipher Suite",
+    "url": "/posts/openssl-testing-cipher-suite/",
+    "categories": "security, certificates",
+    "tags": "security, cryptography, openssl, cipher, ciphersuite",
+    "date": "2021-04-06 19:46:40 +1000",
+    
+
+
+
+
+
+    "snippet": "In this post we’ll look at how to test whether a server supports a certain cipher suite when using TLS.  Testing Ciphers for TLSv1.2 &amp;amp; Below          Testing Other TLS Versions        Testing TLSv1.3 CiphersBelow we have the SSLScan results of github.com. Let’s see how to verify if a cert..."
+  },
+  
+  {
+    "title": "NodeJS Crypto Module",
+    "url": "/posts/nodejs-crypto/",
+    "categories": "javascript, nodejs",
+    "tags": "javascript, nodejs, security, cryptography",
+    "date": "2021-04-06 18:37:40 +1000",
+    
+
+
+
+
+
+    "snippet": "In this post we’ll look at how to use some features of the crypto library built into NodeJS. We’ll look at how to do symmetric encryption (AES), hashing strings and files, and finally ECDH (Elliptic-Curve Diffie-Hellman).  Symmetric Encryption          List Supported Ciphers      AES Example     ..."
+  }
+  
+]
+

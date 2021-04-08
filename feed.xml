@@ -1,0 +1,268 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>/</id>
+  <title>O1dMate's Blog</title>
+  <subtitle>A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.</subtitle>
+  <updated>2021-04-08T20:02:15+10:00</updated>
+  <author>
+    <name>Alexander Wells</name>
+    <uri>/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en-US"
+    href="/"/>
+  <generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator>
+  <rights> © 2021 Alexander Wells </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>TLS Server Signature Algorithm</title>
+    <link href="/posts/tls-server-signature-algorithm/" rel="alternate" type="text/html" title="TLS Server Signature Algorithm" />
+    <published>2021-04-08T17:30:12+10:00</published>
+  
+    <updated>2021-04-08T17:30:12+10:00</updated>
+  
+    <id>/posts/tls-server-signature-algorithm/</id>
+    <content src="/posts/tls-server-signature-algorithm/" />
+    <author>
+      <name>Alexander Wells</name>
+    </author>
+
+  
+    
+    <category term="security" />
+    
+    <category term="certificates" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      In this post we’ll look at what the Server Signature Algorithm in TLS is for.
+
+This guide can get technical at times so it’s recommended that you understand the follow terms are as they will be assumed knowledge:
+
+  RSA (Rivest–Shamir–Adleman)
+  ECC (Elliptic-Curve-Cryptography)
+  Symmetric Cryptography (i.e. AES)
+  Asymmetric Cryptography (Public/Private Key pair)
+  Hash Function (i.e. SHA1, S...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>OpenSSL Creating a Host Certificate</title>
+    <link href="/posts/openssl-creating-a-host-certificate/" rel="alternate" type="text/html" title="OpenSSL Creating a Host Certificate" />
+    <published>2021-04-07T21:03:48+10:00</published>
+  
+    <updated>2021-04-07T21:03:48+10:00</updated>
+  
+    <id>/posts/openssl-creating-a-host-certificate/</id>
+    <content src="/posts/openssl-creating-a-host-certificate/" />
+    <author>
+      <name>Alexander Wells</name>
+    </author>
+
+  
+    
+    <category term="security" />
+    
+    <category term="certificates" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      In this post we’ll look at how to create our own Host Certificates using OpenSSL. These certificates can be used on web-servers for enabling TLS.
+
+A valid CA Certificate and Private key will be required to follow this tutorial. If you do not have these, you can create them by following this guide.
+
+
+  Generating a Private Key
+    
+      List OpenSSL Support Elliptic Curves
+      Elliptic Curve ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>OpenSSL Creating a Certificate Authority (CA)</title>
+    <link href="/posts/openssl-creating-a-ca/" rel="alternate" type="text/html" title="OpenSSL Creating a Certificate Authority (CA)" />
+    <published>2021-04-07T19:17:22+10:00</published>
+  
+    <updated>2021-04-07T19:17:22+10:00</updated>
+  
+    <id>/posts/openssl-creating-a-ca/</id>
+    <content src="/posts/openssl-creating-a-ca/" />
+    <author>
+      <name>Alexander Wells</name>
+    </author>
+
+  
+    
+    <category term="security" />
+    
+    <category term="certificates" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      In this post we’ll look at how to create our own Certificate Authority (CA) using OpenSSL.
+
+
+  Generating a Private Key
+    
+      List OpenSSL Support Elliptic Curves
+      Elliptic Curve Private Key
+      RSA Private Key
+    
+  
+  Generating a Certificate
+    
+      Configuration File
+      Creating the Certificate
+    
+  
+  Using the CA
+
+
+Generating a Private Key
+
+The first step is to create...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>OpenSSL Testing a Signature Algorithm</title>
+    <link href="/posts/openssl-testing-signature-algorithm/" rel="alternate" type="text/html" title="OpenSSL Testing a Signature Algorithm" />
+    <published>2021-04-07T00:44:00+10:00</published>
+  
+    <updated>2021-04-07T00:44:00+10:00</updated>
+  
+    <id>/posts/openssl-testing-signature-algorithm/</id>
+    <content src="/posts/openssl-testing-signature-algorithm/" />
+    <author>
+      <name>Alexander Wells</name>
+    </author>
+
+  
+    
+    <category term="security" />
+    
+    <category term="certificates" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      In this post we’ll look at how to test whether a server supports a certain signature algorithm when using TLS.
+
+
+  Testing RSA PKCS1 Signature Algorithm
+  Testing RSA PSS RSAE Signature Algorithm
+  Testing DSA Signature Algorithm
+  Testing ECDSA Signature Algorithm
+  Verifying Results
+
+
+Below we have the SSLScan results of github.com. Let’s see how to verify if a certain signature algorithm is ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>OpenSSL Testing a Cipher Suite</title>
+    <link href="/posts/openssl-testing-cipher-suite/" rel="alternate" type="text/html" title="OpenSSL Testing a Cipher Suite" />
+    <published>2021-04-06T19:46:40+10:00</published>
+  
+    <updated>2021-04-06T19:46:40+10:00</updated>
+  
+    <id>/posts/openssl-testing-cipher-suite/</id>
+    <content src="/posts/openssl-testing-cipher-suite/" />
+    <author>
+      <name>Alexander Wells</name>
+    </author>
+
+  
+    
+    <category term="security" />
+    
+    <category term="certificates" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      In this post we’ll look at how to test whether a server supports a certain cipher suite when using TLS.
+
+
+  Testing Ciphers for TLSv1.2 &amp;amp; Below
+    
+      Testing Other TLS Versions
+    
+  
+  Testing TLSv1.3 Ciphers
+
+
+Below we have the SSLScan results of github.com. Let’s see how to verify if a certain cipher works.
+
+
+
+Testing Ciphers for TLSv1.2 &amp;amp; Below
+
+1
+openssl s_client -connect git...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+

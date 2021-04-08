@@ -15,26 +15,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   
+    <meta name="pv-cache-enabled" content="false">
+
+    
+  
 
   <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="404: Page not found" />
+<meta property="og:title" content="OpenSSL Creating a Host Certificate" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation." />
-<meta property="og:description" content="A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation." />
-<link rel="canonical" href="/404.html" />
-<meta property="og:url" content="/404.html" />
+<meta name="description" content="In this post we’ll look at how to create our own Host Certificates using OpenSSL. These certificates can be used on web-servers for enabling TLS." />
+<meta property="og:description" content="In this post we’ll look at how to create our own Host Certificates using OpenSSL. These certificates can be used on web-servers for enabling TLS." />
+<link rel="canonical" href="/posts/openssl-creating-a-host-certificate/" />
+<meta property="og:url" content="/posts/openssl-creating-a-host-certificate/" />
 <meta property="og:site_name" content="O1dMate’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-04-07T21:03:48+10:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="404: Page not found" />
+<meta property="twitter:title" content="OpenSSL Creating a Host Certificate" />
 <meta name="twitter:site" content="@twitter_username" />
 <meta name="google-site-verification" content="google_meta_tag_verification" />
 <script type="application/ld+json">
-{"@type":"WebPage","description":"A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.","url":"/404.html","headline":"404: Page not found","@context":"https://schema.org"}</script>
+{"dateModified":"2021-04-07T21:03:48+10:00","datePublished":"2021-04-07T21:03:48+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/openssl-creating-a-host-certificate/"},"@type":"BlogPosting","description":"In this post we’ll look at how to create our own Host Certificates using OpenSSL. These certificates can be used on web-servers for enabling TLS.","url":"/posts/openssl-creating-a-host-certificate/","headline":"OpenSSL Creating a Host Certificate","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>404: Page not found | O1dMate's Blog
+  <title>OpenSSL Creating a Host Certificate | O1dMate's Blog
   </title>
 
   <!--
@@ -100,6 +106,9 @@
 <link rel="stylesheet" href="/assets/css/style.css">
 
 
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+
 
 
   <!-- JavaScripts -->
@@ -114,11 +123,13 @@
 -->
 
 
+  
 
 
 
 
-<script defer src="/assets/js/dist/page.min.js"></script>
+
+<script defer src="/assets/js/dist/post.min.js"></script>
 
 
 
@@ -418,17 +429,26 @@
 
         
           
-          <span>
-            <a href="/">Home</a>
-          </span>
-          
 
         
 
       
 
         
-          <span>404: Page not found</span>
+        <span>
+          
+          
+          <a href="/">
+            Posts
+          </a>
+        </span>
+
+        
+
+      
+
+        
+          <span>OpenSSL Creating a Host Certificate</span>
 
         
 
@@ -441,7 +461,7 @@
     <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i>
 
     <div id="topbar-title">
-      404: Page not found
+      Post
     </div>
 
     <i id="search-trigger" class="fas fa-search fa-fw"></i>
@@ -484,26 +504,375 @@
 
 
 
+  
+
+  
+
+  <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+  
+  
+
+  
+
+  
+
+
+
 <!-- return -->
 <div class="row">
-  <div class="col-12 col-lg-11 col-xl-8">
-    <div id="page" class="post pb-5 pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4 mb-md-4">
-    
-      <h1 class="dynamic-title">404: Page not found</h1>
+
+  <div id="post-wrapper" class="col-12 col-lg-11 col-xl-8">
+
+    <div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
+
+      <h1 data-toc-skip>OpenSSL Creating a Host Certificate</h1>
+
+      <div class="post-meta text-muted d-flex flex-column">
+        <!-- Published date and author -->
+        <div>
+          <span class="semi-bold">
+            Alexander Wells
+          </span>
+          <!--
+  Date format snippet
+  See: /assets/js/_utils/timeage.js
+-->
+
+
+
+
+
+<span class="timeago "
+  
+    data-toggle="tooltip"
+    data-placement="bottom"
+    title="Wed, Apr  7, 2021,  9:03 PM +1000"
+  
+
+  
+  prep="on" >
+
+  
+  
+
+  
+    Apr  7
+  
+
+  <i class="unloaded">2021-04-07T21:03:48+10:00</i>
+
+</span>
+
+        </div>
+
+        <div>
+          <!-- lastmod -->
+          
+
+          <!-- read time -->
+          <!--
+  Calculate the post's reading time, and display the word count in tooltip
+ -->
+
+
+<!-- words per minute  -->
+
+
+
+
+
+
+
+<!-- return element -->
+<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="640 words">3 min</span>
+
+
+          <!-- page views -->
+          
+
+        </div>
+
+      </div> <!-- .post-meta -->
+
       <div class="post-content">
-        <div class="lead">
-  <p>Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. </p>
-  <p>
-    <a href="/">Head back Home</a>
-    to try finding it again, or search for it on the
-    <a href="/archives">Archives page</a>.
-  </p>
-</div>
+
+        
+
+        <p>In this post we’ll look at how to create our own Host Certificates using OpenSSL. These certificates can be used on web-servers for enabling TLS.</p>
+
+<p>A valid CA Certificate and Private key will be required to follow this tutorial. If you do not have these, you can create them by following <a href="/posts/openssl-creating-a-ca/">this</a> guide.</p>
+
+<ol>
+  <li><a href="#generating-a-private-key">Generating a Private Key</a>
+    <ul>
+      <li><a href="#list-openssl-supported-elliptic-curves">List OpenSSL Support Elliptic Curves</a></li>
+      <li><a href="#elliptic-curve-private-key">Elliptic Curve Private Key</a></li>
+      <li><a href="#rsa-private-key">RSA Private Key</a></li>
+    </ul>
+  </li>
+  <li><a href="#generating-a-certificate-signing-request-csr">Generating a Certificate Signing Request (CSR)</a>
+    <ul>
+      <li><a href="#csr-configuration-file">CSR Configuration File</a></li>
+      <li><a href="#creating-the-csr">Creating the CSR</a></li>
+    </ul>
+  </li>
+  <li><a href="#generating-a-certificate">Generating a Certificate</a>
+    <ul>
+      <li><a href="#configuration-file">Configuration File</a></li>
+      <li><a href="#signing-the-csr">Signing the CSR</a></li>
+    </ul>
+  </li>
+  <li><a href="#using-the-certificate">Using the Certificate</a></li>
+</ol>
+
+<h1 id="generating-a-private-key">Generating a Private Key</h1>
+
+<p>The first step is to create a Private key for our certificate. We can choose either an RSA key or an Elliptic Curve key.</p>
+
+<h2 id="list-openssl-supported-elliptic-curves">List OpenSSL Supported Elliptic Curves</h2>
+<p>The following command will display a list of supported OpenSSL elliptic curves. We’ll need to choose one of these curves when we are generating our Private key.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre>openssl ecparam <span class="nt">-list_curves</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="elliptic-curve-private-key">Elliptic Curve Private Key</h2>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre>openssl ecparam <span class="nt">-genkey</span> <span class="nt">-name</span> secp384r1 <span class="nt">-out</span> host.key
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">secp384r1</code> is the name of the curve we are using.</li>
+  <li><code class="language-plaintext highlighter-rouge">host.key</code> is the name of the output file where we want to store the Private key.</li>
+</ul>
+
+<h2 id="rsa-private-key">RSA Private Key</h2>
+<p>The following command will generate a 2048-bit RSA key:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre>openssl genrsa <span class="nt">-out</span> host.key
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>2048-bits is the standard size. A custom key size can be specified by giving an extra argument. The following command will generate a 4096-bit RSA key:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre>openssl genrsa <span class="nt">-out</span> host.key 4096
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h1 id="generating-a-certificate-signing-request-csr">Generating a Certificate Signing Request (CSR)</h1>
+
+<h2 id="csr-configuration-file">CSR Configuration File</h2>
+<p>We need to specify some parameters for our certificate before we can create it.</p>
+
+<p>Create a file called <code class="language-plaintext highlighter-rouge">host.conf</code> and add the following:</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="code"><pre>[req]
+default_md = sha512
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+[req]
+distinguished_name = req_distinguished_name
+req_extensions = req_ext
+prompt = no
+[req_distinguished_name]
+C   = AU
+ST  = Victoria
+L   = Melbourne
+O   = My Company
+OU  = My Division
+CN  = testing.com
+[req_ext]
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = testing.com
+DNS.2 = *.testing.com
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>Customize the <code class="language-plaintext highlighter-rouge">C</code>, <code class="language-plaintext highlighter-rouge">ST</code>, <code class="language-plaintext highlighter-rouge">L</code>, <code class="language-plaintext highlighter-rouge">O</code>, <code class="language-plaintext highlighter-rouge">OU</code> and <code class="language-plaintext highlighter-rouge">CN</code> to your desired values.</li>
+</ul>
+
+<p>The <code class="language-plaintext highlighter-rouge">CN</code> (Common Name) field will be displayed when your computer shows the certificate path:</p>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/certificates/certificate-2.png" alt="" /></p>
+
+<p>The <code class="language-plaintext highlighter-rouge">DNS.*</code> fields represent other domains that this certificate will also be valid for. Remember that a certificate valid for <code class="language-plaintext highlighter-rouge">*.testing.com</code> is <strong>NOT</strong> valid for <code class="language-plaintext highlighter-rouge">testing.com</code>, so it must be added separately.</p>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/certificates/certificate-3.png" alt="" /></p>
+
+<h2 id="creating-the-csr">Creating the CSR</h2>
+<p>We are now ready to create a certificate signing request (CSR) using the private key and config we just created. The CSR will then need to be signed by a CA before it can be used.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre>openssl req <span class="nt">-new</span> <span class="nt">-sha512</span> <span class="nt">-nodes</span> <span class="nt">-key</span> host.key <span class="nt">-out</span> host.csr <span class="nt">-config</span> host.conf
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h1 id="generating-a-certificate">Generating a Certificate</h1>
+
+<h2 id="configuration-file">Configuration File</h2>
+<p>We need to specify some extra parameters so that our final certificate will be fully trusted X.509 Cert.</p>
+
+<p>Create a file called <code class="language-plaintext highlighter-rouge">host-ext.conf</code> and add the following:</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre>basicConstraints = CA:FALSE
+nsCertType = server
+nsComment = "My First Certificate"
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid,issuer:always
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = testing.com
+DNS.2 = *.testing.com
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<ul>
+  <li>Update the <code class="language-plaintext highlighter-rouge">nsComment</code> and <code class="language-plaintext highlighter-rouge">DNS.*</code> fields to your desired values.</li>
+</ul>
+
+<h2 id="signing-the-csr">Signing the CSR</h2>
+<p>We are now ready to sign the CSR using a CA and 2nd config file we created. The output will be our Certificate that is ready to be used.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre>openssl x509 <span class="nt">-req</span> <span class="nt">-sha512</span> <span class="nt">-days</span> 45 <span class="nt">-in</span> host.csr <span class="nt">-CA</span> ca.crt <span class="nt">-CAkey</span> ca.key <span class="nt">-CAcreateserial</span> <span class="nt">-out</span> host.crt <span class="nt">-extfile</span> host-ext.conf
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h1 id="using-the-certificate">Using the Certificate</h1>
+<p>The output files <code class="language-plaintext highlighter-rouge">host.key</code> and <code class="language-plaintext highlighter-rouge">host.crt</code> are now ready to be used for a HTTPS server. If your browser trusts the Root CA that was used to sign the CSR then the host certificate will be valid and trusted.</p>
+
 
       </div>
+
+      <div class="post-tail-wrapper text-muted">
+
+        <!-- categories -->
+        
+        <div class="post-meta mb-3">
+          <i class="far fa-folder-open fa-fw mr-1"></i>
+          
+            <a href='/categories/security/'>security</a>,
+            <a href='/categories/certificates/'>certificates</a>
+        </div>
+        
+
+        <!-- tags -->
+        
+        <div class="post-tags">
+          <i class="fa fa-tags fa-fw mr-1"></i>
+          
+          <a href="/tags/openssl/"
+            class="post-tag no-text-decoration" >openssl</a>
+          
+          <a href="/tags/certificate/"
+            class="post-tag no-text-decoration" >certificate</a>
+          
+          <a href="/tags/host/"
+            class="post-tag no-text-decoration" >host</a>
+          
+          <a href="/tags/security/"
+            class="post-tag no-text-decoration" >security</a>
+          
+          <a href="/tags/cryptography/"
+            class="post-tag no-text-decoration" >cryptography</a>
+          
+          <a href="/tags/https/"
+            class="post-tag no-text-decoration" >HTTPS</a>
+          
+          </div>
+        
+
+        <div class="post-tail-bottom
+          d-flex justify-content-between align-items-center mt-3 pt-5 pb-2">
+          
+          <div class="license-wrapper">
+            This post is licensed under
+            <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+            by the author.
+          </div>
+          
+
+          <!--
+ Post sharing snippet
+-->
+
+<div class="share-wrapper">
+  <span class="share-label text-muted mr-1">Share</span>
+  <span class="share-icons">
     
-    </div> <!-- #page -->
-  </div><!-- .col-12 -->
+    
+
+    
+      
+        <a href="https://twitter.com/intent/tweet?text=OpenSSL Creating a Host Certificate - O1dMate's Blog&url=/posts/openssl-creating-a-host-certificate/" data-toggle="tooltip" data-placement="top"
+          title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
+          <i class="fa-fw fab fa-twitter"></i>
+        </a>
+    
+      
+        <a href="https://www.facebook.com/sharer/sharer.php?title=OpenSSL Creating a Host Certificate - O1dMate's Blog&u=/posts/openssl-creating-a-host-certificate/" data-toggle="tooltip" data-placement="top"
+          title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fa-fw fab fa-facebook-square"></i>
+        </a>
+    
+      
+        <a href="https://telegram.me/share?text=OpenSSL Creating a Host Certificate - O1dMate's Blog&url=/posts/openssl-creating-a-host-certificate/" data-toggle="tooltip" data-placement="top"
+          title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
+          <i class="fa-fw fab fa-telegram"></i>
+        </a>
+    
+
+    <i class="fa-fw fas fa-link small" onclick="copyLink()"
+        data-toggle="tooltip" data-placement="top" title="Copy link"></i>
+
+  </span>
+</div>
+
+
+        </div><!-- .post-tail-bottom -->
+
+      </div><!-- div.post-tail -->
+
+    </div> <!-- .post -->
+
+
+  </div> <!-- #post-wrapper -->
+
+  
+
+  
 
   <!--
   The Pannel on right side (Desktop views)
@@ -982,14 +1351,334 @@
   </div> <!-- .access -->
 
   
+    <!-- BS-toc.js will be loaded at medium priority -->
+    <script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script>
+    <div id="toc-wrapper" class="pl-0 pr-4 mb-5">
+      <span class="pl-3 pt-2 mb-2">Contents</span>
+      <nav id="toc" data-toggle="toc"></nav>
+    </div>
+  
 
 </div> <!-- #panel-wrapper -->
 
 
+</div> <!-- .row -->
+
+<div class="row">
+  <div class="col-12 col-lg-11 col-xl-8">
+    <div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
+
+    <!--
+ Recommend the other 3 posts according to the tags and categories of the current post,
+ if the number is not enough, use the other latest posts to supplement.
+-->
+
+<!-- The total size of related posts  -->
+
+
+<!-- An random integer that bigger than 0  -->
+
+
+<!-- Equals to TAG_SCORE / {max_categories_hierarchy}  -->
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<!-- Fill with the other newlest posts  -->
+
+
+
+
+
+
+  <div id="related-posts" class="mt-5 mb-2 mb-sm-4">
+    <h3 class="pt-2 mt-1 mb-4 ml-1"
+      data-toc-skip>Further Reading</h3>
+    <div class="card-deck mb-4">
+    
+      
+      
+      <div class="card">
+        <a href="/posts/tls-server-signature-algorithm/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: /assets/js/_utils/timeage.js
+-->
+
+
+
+
+
+<span class="timeago small"
+  
+
+  
+   >
+
+  
+  
+
+  
+    Apr  8
+  
+
+  <i class="unloaded">2021-04-08T17:30:12+10:00</i>
+
+</span>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>TLS Server Signature Algorithm</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                In this post we’ll look at what the Server Signature Algorithm in TLS is for.
+
+This guide can get technical at times so it’s recommended that you understand the follow terms are as they will be ass...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="card">
+        <a href="/posts/openssl-creating-a-ca/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: /assets/js/_utils/timeage.js
+-->
+
+
+
+
+
+<span class="timeago small"
+  
+
+  
+   >
+
+  
+  
+
+  
+    Apr  7
+  
+
+  <i class="unloaded">2021-04-07T19:17:22+10:00</i>
+
+</span>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>OpenSSL Creating a Certificate Authority (CA)</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                In this post we’ll look at how to create our own Certificate Authority (CA) using OpenSSL.
+
+
+  Generating a Private Key
+    
+      List OpenSSL Support Elliptic Curves
+      Elliptic Curve Private ...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="card">
+        <a href="/posts/openssl-testing-cipher-suite/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: /assets/js/_utils/timeage.js
+-->
+
+
+
+
+
+<span class="timeago small"
+  
+
+  
+   >
+
+  
+  
+
+  
+    Apr  6
+  
+
+  <i class="unloaded">2021-04-06T19:46:40+10:00</i>
+
+</span>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>OpenSSL Testing a Cipher Suite</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                In this post we’ll look at how to test whether a server supports a certain cipher suite when using TLS.
+
+
+  Testing Ciphers for TLSv1.2 &amp; Below
+    
+      Testing Other TLS Versions
+    
+  
+  T...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+    </div> <!-- .card-deck -->
+  </div> <!-- #related-posts -->
+
+
+
+    <!--
+  Navigation buttons at the bottom of the post.
+-->
+
+<div class="post-navigation d-flex justify-content-between">
+  
+  <a href="/posts/openssl-creating-a-ca/" class="btn btn-outline-primary"
+    prompt="Older">
+    <p>OpenSSL Creating a Certificate Authority (CA)</p>
+  </a>
+  
+
+  
+  <a href="/posts/tls-server-signature-algorithm/" class="btn btn-outline-primary"
+    prompt="Newer">
+    <p>TLS Server Signature Algorithm</p>
+  </a>
+  
+
 </div>
 
 
+    
 
+    </div> <!-- #post-extend-wrapper -->
+
+  </div> <!-- .col-* -->
+
+</div> <!-- .row -->
+
+
+
+  <!--
+  image lazy load: https://github.com/ApoorvSaxena/lozad.js
+-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+
+<script type="text/javascript">
+  const imgs = document.querySelectorAll('.post-content img');
+  const observer = lozad(imgs);
+  observer.observe();
+</script>
 
 
 

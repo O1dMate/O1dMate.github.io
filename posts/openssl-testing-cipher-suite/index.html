@@ -15,26 +15,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   
+    <meta name="pv-cache-enabled" content="false">
+
+    
+  
 
   <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="404: Page not found" />
+<meta property="og:title" content="OpenSSL Testing a Cipher Suite" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation." />
-<meta property="og:description" content="A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation." />
-<link rel="canonical" href="/404.html" />
-<meta property="og:url" content="/404.html" />
+<meta name="description" content="In this post we’ll look at how to test whether a server supports a certain cipher suite when using TLS." />
+<meta property="og:description" content="In this post we’ll look at how to test whether a server supports a certain cipher suite when using TLS." />
+<link rel="canonical" href="/posts/openssl-testing-cipher-suite/" />
+<meta property="og:url" content="/posts/openssl-testing-cipher-suite/" />
 <meta property="og:site_name" content="O1dMate’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-04-06T19:46:40+10:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="404: Page not found" />
+<meta property="twitter:title" content="OpenSSL Testing a Cipher Suite" />
 <meta name="twitter:site" content="@twitter_username" />
 <meta name="google-site-verification" content="google_meta_tag_verification" />
 <script type="application/ld+json">
-{"@type":"WebPage","description":"A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.","url":"/404.html","headline":"404: Page not found","@context":"https://schema.org"}</script>
+{"dateModified":"2021-04-06T19:46:40+10:00","datePublished":"2021-04-06T19:46:40+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/openssl-testing-cipher-suite/"},"@type":"BlogPosting","description":"In this post we’ll look at how to test whether a server supports a certain cipher suite when using TLS.","url":"/posts/openssl-testing-cipher-suite/","headline":"OpenSSL Testing a Cipher Suite","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>404: Page not found | O1dMate's Blog
+  <title>OpenSSL Testing a Cipher Suite | O1dMate's Blog
   </title>
 
   <!--
@@ -100,6 +106,9 @@
 <link rel="stylesheet" href="/assets/css/style.css">
 
 
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+
 
 
   <!-- JavaScripts -->
@@ -114,11 +123,13 @@
 -->
 
 
+  
 
 
 
 
-<script defer src="/assets/js/dist/page.min.js"></script>
+
+<script defer src="/assets/js/dist/post.min.js"></script>
 
 
 
@@ -418,17 +429,26 @@
 
         
           
-          <span>
-            <a href="/">Home</a>
-          </span>
-          
 
         
 
       
 
         
-          <span>404: Page not found</span>
+        <span>
+          
+          
+          <a href="/">
+            Posts
+          </a>
+        </span>
+
+        
+
+      
+
+        
+          <span>OpenSSL Testing a Cipher Suite</span>
 
         
 
@@ -441,7 +461,7 @@
     <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i>
 
     <div id="topbar-title">
-      404: Page not found
+      Post
     </div>
 
     <i id="search-trigger" class="fas fa-search fa-fw"></i>
@@ -484,26 +504,239 @@
 
 
 
+  
+
+  
+
+  <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+  
+  
+
+  
+
+  
+
+
+
 <!-- return -->
 <div class="row">
-  <div class="col-12 col-lg-11 col-xl-8">
-    <div id="page" class="post pb-5 pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4 mb-md-4">
-    
-      <h1 class="dynamic-title">404: Page not found</h1>
+
+  <div id="post-wrapper" class="col-12 col-lg-11 col-xl-8">
+
+    <div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
+
+      <h1 data-toc-skip>OpenSSL Testing a Cipher Suite</h1>
+
+      <div class="post-meta text-muted d-flex flex-column">
+        <!-- Published date and author -->
+        <div>
+          <span class="semi-bold">
+            Alexander Wells
+          </span>
+          <!--
+  Date format snippet
+  See: /assets/js/_utils/timeage.js
+-->
+
+
+
+
+
+<span class="timeago "
+  
+    data-toggle="tooltip"
+    data-placement="bottom"
+    title="Tue, Apr  6, 2021,  7:46 PM +1000"
+  
+
+  
+  prep="on" >
+
+  
+  
+
+  
+    Apr  6
+  
+
+  <i class="unloaded">2021-04-06T19:46:40+10:00</i>
+
+</span>
+
+        </div>
+
+        <div>
+          <!-- lastmod -->
+          
+
+          <!-- read time -->
+          <!--
+  Calculate the post's reading time, and display the word count in tooltip
+ -->
+
+
+<!-- words per minute  -->
+
+
+
+
+
+
+
+<!-- return element -->
+<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="169 words">1 min</span>
+
+
+          <!-- page views -->
+          
+
+        </div>
+
+      </div> <!-- .post-meta -->
+
       <div class="post-content">
-        <div class="lead">
-  <p>Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. </p>
-  <p>
-    <a href="/">Head back Home</a>
-    to try finding it again, or search for it on the
-    <a href="/archives">Archives page</a>.
-  </p>
-</div>
+
+        
+
+        <p>In this post we’ll look at how to test whether a server supports a certain cipher suite when using TLS.</p>
+
+<ol>
+  <li><a href="#testing-ciphers-for-tlsv12-below">Testing Ciphers for TLSv1.2 &amp; Below</a>
+    <ul>
+      <li><a href="#testing-other-tls-versions">Testing Other TLS Versions</a></li>
+    </ul>
+  </li>
+  <li><a href="#testing-tlsv13-ciphers">Testing TLSv1.3 Ciphers</a></li>
+</ol>
+
+<p>Below we have the SSLScan results of <code class="language-plaintext highlighter-rouge">github.com</code>. Let’s see how to verify if a certain cipher works.</p>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/certificates/sslscan-1.png" alt="" /></p>
+
+<h1 id="testing-ciphers-for-tlsv12--below">Testing Ciphers for TLSv1.2 &amp; Below</h1>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre>openssl s_client <span class="nt">-connect</span> github.com:443 <span class="nt">-tls1_2</span> <span class="nt">-cipher</span> AES128-SHA256
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/certificates/sslscan-2.png" alt="" /></p>
+
+<h2 id="testing-other-tls-versions">Testing Other TLS Versions</h2>
+<p>If you want to test ciphers for other versions of TLS such as v1.0 &amp; v1.1, you should replace <code class="language-plaintext highlighter-rouge">-tls1_2</code> in the above command with <code class="language-plaintext highlighter-rouge">-tls1</code> and <code class="language-plaintext highlighter-rouge">-tls1_1</code> respectively.</p>
+
+<h1 id="testing-tlsv13-ciphers">Testing TLSv1.3 Ciphers</h1>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre>openssl s_client <span class="nt">-connect</span> github.com:443 <span class="nt">-ciphersuites</span> TLS_AES_128_GCM_SHA256
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/certificates/sslscan-3.png" alt="" /></p>
+
+<p>When testing a TLSv1.3 cipher you shouldn’t need to specify the TLS version. If the wrong version is being used you can specify TLSv1.3 by using the <code class="language-plaintext highlighter-rouge">-tls1_3</code> flag.</p>
+
+<h1 id="notes">Notes</h1>
+<ul>
+  <li>Make sure you specific a port number at the end of the host name.</li>
+  <li>Depending on the version of OpenSSL you have installed, certain ciphers may or may not be supported.</li>
+</ul>
+
 
       </div>
+
+      <div class="post-tail-wrapper text-muted">
+
+        <!-- categories -->
+        
+        <div class="post-meta mb-3">
+          <i class="far fa-folder-open fa-fw mr-1"></i>
+          
+            <a href='/categories/security/'>security</a>,
+            <a href='/categories/certificates/'>certificates</a>
+        </div>
+        
+
+        <!-- tags -->
+        
+        <div class="post-tags">
+          <i class="fa fa-tags fa-fw mr-1"></i>
+          
+          <a href="/tags/security/"
+            class="post-tag no-text-decoration" >security</a>
+          
+          <a href="/tags/cryptography/"
+            class="post-tag no-text-decoration" >cryptography</a>
+          
+          <a href="/tags/openssl/"
+            class="post-tag no-text-decoration" >openssl</a>
+          
+          <a href="/tags/cipher/"
+            class="post-tag no-text-decoration" >cipher</a>
+          
+          <a href="/tags/ciphersuite/"
+            class="post-tag no-text-decoration" >ciphersuite</a>
+          
+          </div>
+        
+
+        <div class="post-tail-bottom
+          d-flex justify-content-between align-items-center mt-3 pt-5 pb-2">
+          
+          <div class="license-wrapper">
+            This post is licensed under
+            <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+            by the author.
+          </div>
+          
+
+          <!--
+ Post sharing snippet
+-->
+
+<div class="share-wrapper">
+  <span class="share-label text-muted mr-1">Share</span>
+  <span class="share-icons">
     
-    </div> <!-- #page -->
-  </div><!-- .col-12 -->
+    
+
+    
+      
+        <a href="https://twitter.com/intent/tweet?text=OpenSSL Testing a Cipher Suite - O1dMate's Blog&url=/posts/openssl-testing-cipher-suite/" data-toggle="tooltip" data-placement="top"
+          title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
+          <i class="fa-fw fab fa-twitter"></i>
+        </a>
+    
+      
+        <a href="https://www.facebook.com/sharer/sharer.php?title=OpenSSL Testing a Cipher Suite - O1dMate's Blog&u=/posts/openssl-testing-cipher-suite/" data-toggle="tooltip" data-placement="top"
+          title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fa-fw fab fa-facebook-square"></i>
+        </a>
+    
+      
+        <a href="https://telegram.me/share?text=OpenSSL Testing a Cipher Suite - O1dMate's Blog&url=/posts/openssl-testing-cipher-suite/" data-toggle="tooltip" data-placement="top"
+          title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
+          <i class="fa-fw fab fa-telegram"></i>
+        </a>
+    
+
+    <i class="fa-fw fas fa-link small" onclick="copyLink()"
+        data-toggle="tooltip" data-placement="top" title="Copy link"></i>
+
+  </span>
+</div>
+
+
+        </div><!-- .post-tail-bottom -->
+
+      </div><!-- div.post-tail -->
+
+    </div> <!-- .post -->
+
+
+  </div> <!-- #post-wrapper -->
+
+  
+
+  
 
   <!--
   The Pannel on right side (Desktop views)
@@ -982,14 +1215,331 @@
   </div> <!-- .access -->
 
   
+    <!-- BS-toc.js will be loaded at medium priority -->
+    <script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script>
+    <div id="toc-wrapper" class="pl-0 pr-4 mb-5">
+      <span class="pl-3 pt-2 mb-2">Contents</span>
+      <nav id="toc" data-toggle="toc"></nav>
+    </div>
+  
 
 </div> <!-- #panel-wrapper -->
 
 
+</div> <!-- .row -->
+
+<div class="row">
+  <div class="col-12 col-lg-11 col-xl-8">
+    <div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
+
+    <!--
+ Recommend the other 3 posts according to the tags and categories of the current post,
+ if the number is not enough, use the other latest posts to supplement.
+-->
+
+<!-- The total size of related posts  -->
+
+
+<!-- An random integer that bigger than 0  -->
+
+
+<!-- Equals to TAG_SCORE / {max_categories_hierarchy}  -->
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<!-- Fill with the other newlest posts  -->
+
+
+
+
+
+
+  <div id="related-posts" class="mt-5 mb-2 mb-sm-4">
+    <h3 class="pt-2 mt-1 mb-4 ml-1"
+      data-toc-skip>Further Reading</h3>
+    <div class="card-deck mb-4">
+    
+      
+      
+      <div class="card">
+        <a href="/posts/openssl-testing-signature-algorithm/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: /assets/js/_utils/timeage.js
+-->
+
+
+
+
+
+<span class="timeago small"
+  
+
+  
+   >
+
+  
+  
+
+  
+    Apr  7
+  
+
+  <i class="unloaded">2021-04-07T00:44:00+10:00</i>
+
+</span>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>OpenSSL Testing a Signature Algorithm</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                In this post we’ll look at how to test whether a server supports a certain signature algorithm when using TLS.
+
+
+  Testing RSA PKCS1 Signature Algorithm
+  Testing RSA PSS RSAE Signature Algorithm
+ ...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="card">
+        <a href="/posts/openssl-creating-a-ca/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: /assets/js/_utils/timeage.js
+-->
+
+
+
+
+
+<span class="timeago small"
+  
+
+  
+   >
+
+  
+  
+
+  
+    Apr  7
+  
+
+  <i class="unloaded">2021-04-07T19:17:22+10:00</i>
+
+</span>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>OpenSSL Creating a Certificate Authority (CA)</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                In this post we’ll look at how to create our own Certificate Authority (CA) using OpenSSL.
+
+
+  Generating a Private Key
+    
+      List OpenSSL Support Elliptic Curves
+      Elliptic Curve Private ...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="card">
+        <a href="/posts/openssl-creating-a-host-certificate/">
+          <div class="card-body">
+            <!--
+  Date format snippet
+  See: /assets/js/_utils/timeage.js
+-->
+
+
+
+
+
+<span class="timeago small"
+  
+
+  
+   >
+
+  
+  
+
+  
+    Apr  7
+  
+
+  <i class="unloaded">2021-04-07T21:03:48+10:00</i>
+
+</span>
+
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>OpenSSL Creating a Host Certificate</h3>
+            <div class="text-muted small">
+              <p>
+                
+
+
+
+
+
+                In this post we’ll look at how to create our own Host Certificates using OpenSSL. These certificates can be used on web-servers for enabling TLS.
+
+A valid CA Certificate and Private key will be req...
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
+    </div> <!-- .card-deck -->
+  </div> <!-- #related-posts -->
+
+
+
+    <!--
+  Navigation buttons at the bottom of the post.
+-->
+
+<div class="post-navigation d-flex justify-content-between">
+  
+  <a href="/posts/nodejs-crypto/" class="btn btn-outline-primary"
+    prompt="Older">
+    <p>NodeJS Crypto Module</p>
+  </a>
+  
+
+  
+  <a href="/posts/openssl-testing-signature-algorithm/" class="btn btn-outline-primary"
+    prompt="Newer">
+    <p>OpenSSL Testing a Signature Algorithm</p>
+  </a>
+  
+
 </div>
 
 
+    
 
+    </div> <!-- #post-extend-wrapper -->
+
+  </div> <!-- .col-* -->
+
+</div> <!-- .row -->
+
+
+
+  <!--
+  image lazy load: https://github.com/ApoorvSaxena/lozad.js
+-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+
+<script type="text/javascript">
+  const imgs = document.querySelectorAll('.post-content img');
+  const observer = lozad(imgs);
+  observer.observe();
+</script>
 
 
 
