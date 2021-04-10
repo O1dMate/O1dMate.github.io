@@ -24,25 +24,25 @@
 
   <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="OpenSSL Testing a Cipher Suite" />
+<meta property="og:title" content="JavaScript Fetch" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="In this post we’ll look at how to test whether a server supports a certain cipher suite when using TLS." />
-<meta property="og:description" content="In this post we’ll look at how to test whether a server supports a certain cipher suite when using TLS." />
-<link rel="canonical" href="/posts/openssl-testing-cipher-suite/" />
-<meta property="og:url" content="/posts/openssl-testing-cipher-suite/" />
+<meta name="description" content="In this post we’ll look at how to use the fetch command in JavaScript in the browser with some common use cases and examples." />
+<meta property="og:description" content="In this post we’ll look at how to use the fetch command in JavaScript in the browser with some common use cases and examples." />
+<link rel="canonical" href="/posts/javascript-fetch/" />
+<meta property="og:url" content="/posts/javascript-fetch/" />
 <meta property="og:site_name" content="Node Security" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-04-06T19:46:40+10:00" />
+<meta property="article:published_time" content="2021-04-09T17:32:40+10:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="OpenSSL Testing a Cipher Suite" />
+<meta property="twitter:title" content="JavaScript Fetch" />
 <meta name="twitter:site" content="@twitter_username" />
 <meta name="google-site-verification" content="zCs6F-1y95azrfcOnbFvS60JAILGGXaeG4vY1-JFacs" />
 <script type="application/ld+json">
-{"dateModified":"2021-04-08T20:03:02+10:00","datePublished":"2021-04-06T19:46:40+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/openssl-testing-cipher-suite/"},"@type":"BlogPosting","description":"In this post we’ll look at how to test whether a server supports a certain cipher suite when using TLS.","url":"/posts/openssl-testing-cipher-suite/","headline":"OpenSSL Testing a Cipher Suite","@context":"https://schema.org"}</script>
+{"dateModified":"2021-04-09T17:32:40+10:00","datePublished":"2021-04-09T17:32:40+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/javascript-fetch/"},"@type":"BlogPosting","description":"In this post we’ll look at how to use the fetch command in JavaScript in the browser with some common use cases and examples.","url":"/posts/javascript-fetch/","headline":"JavaScript Fetch","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>OpenSSL Testing a Cipher Suite | Node Security
+  <title>JavaScript Fetch | Node Security
   </title>
 
   <!--
@@ -297,7 +297,7 @@
       
 
         
-          <span>OpenSSL Testing a Cipher Suite</span>
+          <span>JavaScript Fetch</span>
 
         
 
@@ -353,20 +353,6 @@
 
 
 
-  
-
-  
-
-  <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
-  
-  
-
-  
-
-  
-
-
-
 <!-- return -->
 <div class="row">
 
@@ -374,7 +360,7 @@
 
     <div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
 
-      <h1 data-toc-skip>OpenSSL Testing a Cipher Suite</h1>
+      <h1 data-toc-skip>JavaScript Fetch</h1>
 
       <div class="post-meta text-muted d-flex flex-column">
         <!-- Published date and author -->
@@ -395,7 +381,7 @@
   
     data-toggle="tooltip"
     data-placement="bottom"
-    title="Tue, Apr  6, 2021,  7:46 PM +1000"
+    title="Fri, Apr  9, 2021,  5:32 PM +1000"
   
 
   
@@ -405,10 +391,10 @@
   
 
   
-    Apr  6
+    Apr  9
   
 
-  <i class="unloaded">2021-04-06T19:46:40+10:00</i>
+  <i class="unloaded">2021-04-09T17:32:40+10:00</i>
 
 </span>
 
@@ -416,39 +402,6 @@
 
         <div>
           <!-- lastmod -->
-          
-          <span>
-            <!--
-  Date format snippet
-  See: /assets/js/_utils/timeage.js
--->
-
-
-
-
-
-<span class="timeago lastmod"
-  
-    data-toggle="tooltip"
-    data-placement="bottom"
-    title="Thu, Apr  8, 2021,  8:03 PM +1000"
-  
-
-  prefix="Updated "
-   >
-
-  
-  
-
-  
-    Apr  8
-  
-
-  <i class="unloaded">2021-04-08T20:03:02+10:00</i>
-
-</span>
-
-          </span>
           
 
           <!-- read time -->
@@ -466,7 +419,7 @@
 
 
 <!-- return element -->
-<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="169 words">1 min</span>
+<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="311 words">1 min</span>
 
 
           <!-- page views -->
@@ -480,47 +433,168 @@
 
         
 
-        <p>In this post we’ll look at how to test whether a server supports a certain cipher suite when using TLS.</p>
+        <p>In this post we’ll look at how to use the <code class="language-plaintext highlighter-rouge">fetch</code> command in JavaScript in the browser with some common use cases and examples.</p>
 
 <ol>
-  <li><a href="#testing-ciphers-for-tlsv12-below">Testing Ciphers for TLSv1.2 &amp; Below</a>
+  <li><a href="#making-requests">Making Requests</a>
     <ul>
-      <li><a href="#testing-other-tls-versions">Testing Other TLS Versions</a></li>
+      <li><a href="#get-request">GET Request</a></li>
+      <li><a href="#post-request">POST Request</a></li>
+      <li><a href="#include-cookies-for-cross-domain-requests">Include Cookies for Cross-Domain Requests</a></li>
+      <li><a href="#custom-headers">Custom Headers</a></li>
     </ul>
   </li>
-  <li><a href="#testing-tlsv13-ciphers">Testing TLSv1.3 Ciphers</a></li>
+  <li><a href="#response-data">Response Data</a>
+    <ul>
+      <li><a href="#accessing-response-data">Accessing Response Data</a></li>
+      <li><a href="#response-headers--status">Response Headers &amp; Status</a></li>
+    </ul>
+  </li>
 </ol>
 
-<p>Below we have the SSLScan results of <code class="language-plaintext highlighter-rouge">github.com</code>. Let’s see how to verify if a certain cipher works.</p>
+<h1 id="making-requests">Making Requests</h1>
 
-<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/certificates/sslscan-1.png" alt="" /></p>
+<h2 id="get-request">GET Request</h2>
 
-<h1 id="testing-ciphers-for-tlsv12--below">Testing Ciphers for TLSv1.2 &amp; Below</h1>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-</pre></td><td class="code"><pre>openssl s_client <span class="nt">-connect</span> github.com:443 <span class="nt">-tls1_2</span> <span class="nt">-cipher</span> AES128-SHA256
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/home</span><span class="dl">'</span><span class="p">);</span>
 </pre></td></tr></tbody></table></code></pre></figure>
 
-<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/certificates/sslscan-2.png" alt="" /></p>
+<h2 id="post-request">POST Request</h2>
 
-<h2 id="testing-other-tls-versions">Testing Other TLS Versions</h2>
-<p>If you want to test ciphers for other versions of TLS such as v1.0 &amp; v1.1, you should replace <code class="language-plaintext highlighter-rouge">-tls1_2</code> in the above command with <code class="language-plaintext highlighter-rouge">-tls1</code> and <code class="language-plaintext highlighter-rouge">-tls1_1</code> respectively.</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="c1">// The JSON data that will be sent in our POST request</span>
+<span class="kd">let</span> <span class="nx">apiData</span> <span class="o">=</span> <span class="p">{</span> <span class="na">username</span><span class="p">:</span> <span class="dl">'</span><span class="s1">username</span><span class="dl">'</span><span class="p">,</span> <span class="na">password</span><span class="p">:</span> <span class="dl">'</span><span class="s1">password</span><span class="dl">'</span> <span class="p">};</span>
 
-<h1 id="testing-tlsv13-ciphers">Testing TLSv1.3 Ciphers</h1>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-</pre></td><td class="code"><pre>openssl s_client <span class="nt">-connect</span> github.com:443 <span class="nt">-ciphersuites</span> TLS_AES_128_GCM_SHA256
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/login</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> 
+	<span class="na">method</span><span class="p">:</span><span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+	<span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+		<span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+	<span class="p">},</span>
+	<span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">apiData</span><span class="p">)</span>
+<span class="p">});</span>
 </pre></td></tr></tbody></table></code></pre></figure>
 
-<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/certificates/sslscan-3.png" alt="" /></p>
+<h2 id="include-cookies-for-cross-domain-requests">Include Cookies for Cross-Domain Requests</h2>
 
-<p>When testing a TLSv1.3 cipher you shouldn’t need to specify the TLS version. If the wrong version is being used you can specify TLSv1.3 by using the <code class="language-plaintext highlighter-rouge">-tls1_3</code> flag.</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="c1">// The current origin is "https://my-domain.com".</span>
 
-<h1 id="notes">Notes</h1>
-<ul>
-  <li>Make sure you specific a port number at the end of the host name.</li>
-  <li>Depending on the version of OpenSSL you have installed, certain ciphers may or may not be supported.</li>
-</ul>
+<span class="c1">// Cookies for "my-domain.com" will be sent in the request.</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/home</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// Cookies for "testing.com" WILL NOT be sent in the request.</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://testing.com/home</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// Cookies for "testing.com" WILL be sent in the request (assuming the SameSite attribute permits it).</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://testing.com/home</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+	<span class="na">credentials</span><span class="p">:</span> <span class="dl">'</span><span class="s1">include</span><span class="dl">'</span>
+<span class="p">});</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><br /></p>
+
+<h2 id="custom-headers">Custom Headers</h2>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/home</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+	<span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+		<span class="dl">'</span><span class="s1">Custom-Header-1</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">My Custom Header 1</span><span class="dl">'</span><span class="p">,</span>
+		<span class="dl">'</span><span class="s1">Custom-Header-2</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">My Custom Header 2</span><span class="dl">'</span><span class="p">,</span>
+		<span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1"> Bearer myToken</span><span class="dl">'</span><span class="p">,</span>
+	<span class="p">},</span>
+<span class="p">});</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><br /></p>
+
+<h1 id="response-data">Response Data</h1>
+<h2 id="accessing-response-data">Accessing Response Data</h2>
+
+<p>Using then/catch/finally</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/v1/user</span><span class="dl">'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> 
+	<span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>	<span class="c1">// .text() is valid if you want the data as a string instead.</span>
+<span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span> <span class="c1">// { userId: 1, username: "admin" }</span>
+<span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Using Async &amp; Await</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="kd">let</span> <span class="nx">responseData</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/v1/user</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">responseData</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">responseData</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">responseData</span><span class="p">);</span> <span class="c1">// { userId: 1, username: "admin" }</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="response-headers--status">Response Headers &amp; Status</h2>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="kd">let</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/v1/user</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// Get the HTTP response code</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+
+<span class="c1">// Get a single header</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">content-type</span><span class="dl">'</span><span class="p">));</span>
+
+<span class="c1">// Loop over all headers &amp; values</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">value</span><span class="p">,</span> <span class="nx">header</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">header</span><span class="p">,</span> <span class="nx">value</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
 
 
       </div>
@@ -532,8 +606,7 @@
         <div class="post-meta mb-3">
           <i class="far fa-folder-open fa-fw mr-1"></i>
           
-            <a href='/categories/security/'>security</a>,
-            <a href='/categories/certificates/'>certificates</a>
+            <a href='/categories/javascript/'>javascript</a>
         </div>
         
 
@@ -542,20 +615,14 @@
         <div class="post-tags">
           <i class="fa fa-tags fa-fw mr-1"></i>
           
-          <a href="/tags/security/"
-            class="post-tag no-text-decoration" >security</a>
+          <a href="/tags/javascript/"
+            class="post-tag no-text-decoration" >javascript</a>
           
-          <a href="/tags/cryptography/"
-            class="post-tag no-text-decoration" >cryptography</a>
+          <a href="/tags/web/"
+            class="post-tag no-text-decoration" >web</a>
           
-          <a href="/tags/openssl/"
-            class="post-tag no-text-decoration" >openssl</a>
-          
-          <a href="/tags/cipher/"
-            class="post-tag no-text-decoration" >cipher</a>
-          
-          <a href="/tags/ciphersuite/"
-            class="post-tag no-text-decoration" >ciphersuite</a>
+          <a href="/tags/https/"
+            class="post-tag no-text-decoration" >https</a>
           
           </div>
         
@@ -582,19 +649,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=OpenSSL Testing a Cipher Suite - Node Security&url=/posts/openssl-testing-cipher-suite/" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=JavaScript Fetch - Node Security&url=/posts/javascript-fetch/" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=OpenSSL Testing a Cipher Suite - Node Security&u=/posts/openssl-testing-cipher-suite/" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=JavaScript Fetch - Node Security&u=/posts/javascript-fetch/" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://telegram.me/share?text=OpenSSL Testing a Cipher Suite - Node Security&url=/posts/openssl-testing-cipher-suite/" data-toggle="tooltip" data-placement="top"
+        <a href="https://telegram.me/share?text=JavaScript Fetch - Node Security&url=/posts/javascript-fetch/" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -1320,72 +1387,72 @@
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
   
 
   
@@ -1420,7 +1487,7 @@
       
       
       <div class="card">
-        <a href="/posts/openssl-testing-signature-algorithm/">
+        <a href="/posts/express-https-server/">
           <div class="card-body">
             <!--
   Date format snippet
@@ -1441,14 +1508,14 @@
   
 
   
-    Apr  7
+    Apr 10
   
 
-  <i class="unloaded">2021-04-07T00:44:00+10:00</i>
+  <i class="unloaded">2021-04-10T12:30:07+10:00</i>
 
 </span>
 
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>OpenSSL Testing a Signature Algorithm</h3>
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>NodeJS Express HTTPS Server</h3>
             <div class="text-muted small">
               <p>
                 
@@ -1457,12 +1524,9 @@
 
 
 
-                In this post we’ll look at how to test whether a server supports a certain signature algorithm when using TLS.
+                In this post we’ll look at how to add TLS to an NodeJS express HTTP server.
 
-
-  Testing RSA PKCS1 Signature Algorithm
-  Testing RSA PSS RSAE Signature Algorithm
- ...
+This post will assume that you already know how to setup a HTTP server using express. If you don’t know how to, you can ...
               </p>
             </div>
           </div>
@@ -1472,7 +1536,7 @@
       
       
       <div class="card">
-        <a href="/posts/openssl-creating-a-ca/">
+        <a href="/posts/express-http-server/">
           <div class="card-body">
             <!--
   Date format snippet
@@ -1493,14 +1557,14 @@
   
 
   
-    Apr  7
+    Apr  9
   
 
-  <i class="unloaded">2021-04-07T19:17:22+10:00</i>
+  <i class="unloaded">2021-04-09T17:32:40+10:00</i>
 
 </span>
 
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>OpenSSL Creating a Certificate Authority (CA)</h3>
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>NodeJS Express HTTP Server</h3>
             <div class="text-muted small">
               <p>
                 
@@ -1509,13 +1573,18 @@
 
 
 
-                In this post we’ll look at how to create our own Certificate Authority (CA) using OpenSSL.
+                In this post we’ll look at how to build a simple HTTP server in NodeJS using the express framework.
 
 
-  Generating a Private Key
+  Server Setup
     
-      List OpenSSL Support Elliptic Curves
-      Elliptic Curve Private ...
+      Required Packages
+      Basic Setup
+    
+  
+  Express Basics
+    
+   ...
               </p>
             </div>
           </div>
@@ -1582,16 +1651,16 @@ A valid CA Certificate and Private key will be req...
 
 <div class="post-navigation d-flex justify-content-between">
   
-  <a href="/posts/nodejs-crypto/" class="btn btn-outline-primary"
+  <a href="/posts/tls-server-signature-algorithm/" class="btn btn-outline-primary"
     prompt="Older">
-    <p>NodeJS Crypto Module</p>
+    <p>TLS Server Signature Algorithm</p>
   </a>
   
 
   
-  <a href="/posts/openssl-testing-signature-algorithm/" class="btn btn-outline-primary"
+  <a href="/posts/express-http-server/" class="btn btn-outline-primary"
     prompt="Newer">
-    <p>OpenSSL Testing a Signature Algorithm</p>
+    <p>NodeJS Express HTTP Server</p>
   </a>
   
 
@@ -1606,18 +1675,6 @@ A valid CA Certificate and Private key will be req...
 
 </div> <!-- .row -->
 
-
-
-  <!--
-  image lazy load: https://github.com/ApoorvSaxena/lozad.js
--->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
-
-<script type="text/javascript">
-  const imgs = document.querySelectorAll('.post-content img');
-  const observer = lozad(imgs);
-  observer.observe();
-</script>
 
 
 

@@ -2,9 +2,9 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>/</id>
-  <title>O1dMate's Blog</title>
-  <subtitle>A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.</subtitle>
-  <updated>2021-04-08T21:58:43+10:00</updated>
+  <title>Node Security</title>
+  <subtitle>Security and programming blog containing guides and examples of how to do various penetration testing and programming related tasks.</subtitle>
+  <updated>2021-04-10T17:13:16+10:00</updated>
   <author>
     <name>Alexander Wells</name>
     <uri>/</uri>
@@ -17,6 +17,174 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>NodeJS Express HTTPS Server</title>
+    <link href="/posts/express-https-server/" rel="alternate" type="text/html" title="NodeJS Express HTTPS Server" />
+    <published>2021-04-10T12:30:07+10:00</published>
+  
+    <updated>2021-04-10T12:30:07+10:00</updated>
+  
+    <id>/posts/express-https-server/</id>
+    <content src="/posts/express-https-server/" />
+    <author>
+      <name>Alexander Wells</name>
+    </author>
+
+  
+    
+    <category term="javascript" />
+    
+    <category term="nodejs" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      In this post we’ll look at how to add TLS to an NodeJS express HTTP server.
+
+This post will assume that you already know how to setup a HTTP server using express. If you don’t know how to, you can learn how to do it here.
+
+
+  Server Options
+  Creating the Server
+  Hardened TLS Configuration
+    
+      Hardened Configuration Example
+    
+  
+
+
+Server Options
+To add TLS to our server we first need...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>NodeJS Express HTTP Server</title>
+    <link href="/posts/express-http-server/" rel="alternate" type="text/html" title="NodeJS Express HTTP Server" />
+    <published>2021-04-09T17:32:40+10:00</published>
+  
+    <updated>2021-04-09T17:32:40+10:00</updated>
+  
+    <id>/posts/express-http-server/</id>
+    <content src="/posts/express-http-server/" />
+    <author>
+      <name>Alexander Wells</name>
+    </author>
+
+  
+    
+    <category term="javascript" />
+    
+    <category term="nodejs" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      In this post we’ll look at how to build a simple HTTP server in NodeJS using the express framework.
+
+
+  Server Setup
+    
+      Required Packages
+      Basic Setup
+    
+  
+  Express Basics
+    
+      Routes
+      Sending Back Data
+      Response Codes
+      Route Parameters
+      Query Parameters
+      Cookies
+      JSON Body
+    
+  
+  More Advanced Stuff
+    
+      Custom Headers
+      Next Ro...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>JavaScript Fetch</title>
+    <link href="/posts/javascript-fetch/" rel="alternate" type="text/html" title="JavaScript Fetch" />
+    <published>2021-04-09T17:32:40+10:00</published>
+  
+    <updated>2021-04-09T17:32:40+10:00</updated>
+  
+    <id>/posts/javascript-fetch/</id>
+    <content src="/posts/javascript-fetch/" />
+    <author>
+      <name>Alexander Wells</name>
+    </author>
+
+  
+    
+    <category term="javascript" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      In this post we’ll look at how to use the fetch command in JavaScript in the browser with some common use cases and examples.
+
+
+  Making Requests
+    
+      GET Request
+      POST Request
+      Include Cookies for Cross-Domain Requests
+      Custom Headers
+    
+  
+  Response Data
+    
+      Accessing Response Data
+      Response Headers &amp;amp; Status
+    
+  
+
+
+Making Requests
+
+GET Request
+
+1
+fet...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -48,15 +216,15 @@
 
 
 
-      In this post we’ll look at what the Server Signature Algorithm in TLS is for.
+      In this post we’ll look at what the TLS Server Signature Algorithm is for.
 
-This guide can get technical at times so it’s recommended that you understand the follow terms are as they will be assumed knowledge:
+This guide can get technical at times so it’s recommended that you understand the follow terms as they are assumed knowledge:
 
   RSA (Rivest–Shamir–Adleman)
   ECC (Elliptic-Curve-Cryptography)
   Symmetric Cryptography (i.e. AES)
   Asymmetric Cryptography (Public/Private Key pair)
-  Hash Function (i.e. SHA1, S...
+  Hash Function (i.e. SHA1, SHA256, SHA5...
     </summary>
   
 
@@ -101,163 +269,6 @@ A valid CA Certificate and Private key will be required to follow this tutorial.
     
       List OpenSSL Support Elliptic Curves
       Elliptic Curve ...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>OpenSSL Creating a Certificate Authority (CA)</title>
-    <link href="/posts/openssl-creating-a-ca/" rel="alternate" type="text/html" title="OpenSSL Creating a Certificate Authority (CA)" />
-    <published>2021-04-07T19:17:22+10:00</published>
-  
-    <updated>2021-04-07T19:17:22+10:00</updated>
-  
-    <id>/posts/openssl-creating-a-ca/</id>
-    <content src="/posts/openssl-creating-a-ca/" />
-    <author>
-      <name>Alexander Wells</name>
-    </author>
-
-  
-    
-    <category term="security" />
-    
-    <category term="certificates" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      In this post we’ll look at how to create our own Certificate Authority (CA) using OpenSSL.
-
-
-  Generating a Private Key
-    
-      List OpenSSL Support Elliptic Curves
-      Elliptic Curve Private Key
-      RSA Private Key
-    
-  
-  Generating a Certificate
-    
-      Configuration File
-      Creating the Certificate
-    
-  
-  Using the CA
-
-
-Generating a Private Key
-
-The first step is to create...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>OpenSSL Testing a Signature Algorithm</title>
-    <link href="/posts/openssl-testing-signature-algorithm/" rel="alternate" type="text/html" title="OpenSSL Testing a Signature Algorithm" />
-    <published>2021-04-07T00:44:00+10:00</published>
-  
-    <updated>2021-04-08T20:03:02+10:00</updated>
-  
-    <id>/posts/openssl-testing-signature-algorithm/</id>
-    <content src="/posts/openssl-testing-signature-algorithm/" />
-    <author>
-      <name>Alexander Wells</name>
-    </author>
-
-  
-    
-    <category term="security" />
-    
-    <category term="certificates" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      In this post we’ll look at how to test whether a server supports a certain signature algorithm when using TLS.
-
-
-  Testing RSA PKCS1 Signature Algorithm
-  Testing RSA PSS RSAE Signature Algorithm
-  Testing DSA Signature Algorithm
-  Testing ECDSA Signature Algorithm
-  Verifying Results
-
-
-Below we have the SSLScan results of github.com. Let’s see how to verify if a certain signature algorithm is ...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>OpenSSL Testing a Cipher Suite</title>
-    <link href="/posts/openssl-testing-cipher-suite/" rel="alternate" type="text/html" title="OpenSSL Testing a Cipher Suite" />
-    <published>2021-04-06T19:46:40+10:00</published>
-  
-    <updated>2021-04-08T20:03:02+10:00</updated>
-  
-    <id>/posts/openssl-testing-cipher-suite/</id>
-    <content src="/posts/openssl-testing-cipher-suite/" />
-    <author>
-      <name>Alexander Wells</name>
-    </author>
-
-  
-    
-    <category term="security" />
-    
-    <category term="certificates" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      In this post we’ll look at how to test whether a server supports a certain cipher suite when using TLS.
-
-
-  Testing Ciphers for TLSv1.2 &amp;amp; Below
-    
-      Testing Other TLS Versions
-    
-  
-  Testing TLSv1.3 Ciphers
-
-
-Below we have the SSLScan results of github.com. Let’s see how to verify if a certain cipher works.
-
-
-
-Testing Ciphers for TLSv1.2 &amp;amp; Below
-
-1
-openssl s_client -connect git...
     </summary>
   
 

@@ -1,9 +1,9 @@
 
 
 {
-  "name": "O1dMate's Blog",
-  "short_name": "O1dMate's Blog",
-  "description": "A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.",
+  "name": "Node Security",
+  "short_name": "Node Security",
+  "description": "Security and programming blog containing guides and examples of how to do various penetration testing and programming related tasks.",
   "icons": [
     {
       "src": "/assets/img/favicons/android-icon-36x36.png",

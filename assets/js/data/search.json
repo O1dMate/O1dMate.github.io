@@ -1,10 +1,55 @@
 [
   
   {
+    "title": "NodeJS Express HTTPS Server",
+    "url": "/posts/express-https-server/",
+    "categories": "javascript, nodejs",
+    "tags": "javascript, web, https, http, nodejs, server, express",
+    "date": "2021-04-10 12:30:07 +1000",
+    
+
+
+
+
+
+    "snippet": "In this post we’ll look at how to add TLS to an NodeJS express HTTP server.This post will assume that you already know how to setup a HTTP server using express. If you don’t know how to, you can learn how to do it here.  Server Options  Creating the Server  Hardened TLS Configuration          Har..."
+  },
+  
+  {
+    "title": "NodeJS Express HTTP Server",
+    "url": "/posts/express-http-server/",
+    "categories": "javascript, nodejs",
+    "tags": "javascript, web, http, nodejs, server, express",
+    "date": "2021-04-09 17:32:40 +1000",
+    
+
+
+
+
+
+    "snippet": "In this post we’ll look at how to build a simple HTTP server in NodeJS using the express framework.  Server Setup          Required Packages      Basic Setup        Express Basics          Routes      Sending Back Data      Response Codes      Route Parameters      Query Parameters      Cookies  ..."
+  },
+  
+  {
+    "title": "JavaScript Fetch",
+    "url": "/posts/javascript-fetch/",
+    "categories": "javascript",
+    "tags": "javascript, web, https",
+    "date": "2021-04-09 17:32:40 +1000",
+    
+
+
+
+
+
+    "snippet": "In this post we’ll look at how to use the fetch command in JavaScript in the browser with some common use cases and examples.  Making Requests          GET Request      POST Request      Include Cookies for Cross-Domain Requests      Custom Headers        Response Data          Accessing Response..."
+  },
+  
+  {
     "title": "TLS Server Signature Algorithm",
     "url": "/posts/tls-server-signature-algorithm/",
     "categories": "security, certificates",
-    "tags": "openssl, certificate, host, security, cryptography, HTTPS, signature, algorithm",
+    "tags": "openssl, certificate, host, security, cryptography, https, signature, algorithm",
     "date": "2021-04-08 17:30:12 +1000",
     
 
@@ -12,14 +57,14 @@
 
 
 
-    "snippet": "In this post we’ll look at what the Server Signature Algorithm in TLS is for.This guide can get technical at times so it’s recommended that you understand the follow terms are as they will be assumed knowledge:  RSA (Rivest–Shamir–Adleman)  ECC (Elliptic-Curve-Cryptography)  Symmetric Cryptograph..."
+    "snippet": "In this post we’ll look at what the TLS Server Signature Algorithm is for.This guide can get technical at times so it’s recommended that you understand the follow terms as they are assumed knowledge:  RSA (Rivest–Shamir–Adleman)  ECC (Elliptic-Curve-Cryptography)  Symmetric Cryptography (i.e. AES..."
   },
   
   {
     "title": "OpenSSL Creating a Host Certificate",
     "url": "/posts/openssl-creating-a-host-certificate/",
     "categories": "security, certificates",
-    "tags": "openssl, certificate, host, security, cryptography, HTTPS",
+    "tags": "openssl, certificate, host, security, cryptography, https",
     "date": "2021-04-07 21:03:48 +1000",
     
 

@@ -24,25 +24,25 @@
 
   <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="OpenSSL Testing a Cipher Suite" />
+<meta property="og:title" content="NodeJS Express HTTPS Server" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="In this post we’ll look at how to test whether a server supports a certain cipher suite when using TLS." />
-<meta property="og:description" content="In this post we’ll look at how to test whether a server supports a certain cipher suite when using TLS." />
-<link rel="canonical" href="/posts/openssl-testing-cipher-suite/" />
-<meta property="og:url" content="/posts/openssl-testing-cipher-suite/" />
+<meta name="description" content="In this post we’ll look at how to add TLS to an NodeJS express HTTP server." />
+<meta property="og:description" content="In this post we’ll look at how to add TLS to an NodeJS express HTTP server." />
+<link rel="canonical" href="/posts/express-https-server/" />
+<meta property="og:url" content="/posts/express-https-server/" />
 <meta property="og:site_name" content="Node Security" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-04-06T19:46:40+10:00" />
+<meta property="article:published_time" content="2021-04-10T12:30:07+10:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="OpenSSL Testing a Cipher Suite" />
+<meta property="twitter:title" content="NodeJS Express HTTPS Server" />
 <meta name="twitter:site" content="@twitter_username" />
 <meta name="google-site-verification" content="zCs6F-1y95azrfcOnbFvS60JAILGGXaeG4vY1-JFacs" />
 <script type="application/ld+json">
-{"dateModified":"2021-04-08T20:03:02+10:00","datePublished":"2021-04-06T19:46:40+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/openssl-testing-cipher-suite/"},"@type":"BlogPosting","description":"In this post we’ll look at how to test whether a server supports a certain cipher suite when using TLS.","url":"/posts/openssl-testing-cipher-suite/","headline":"OpenSSL Testing a Cipher Suite","@context":"https://schema.org"}</script>
+{"dateModified":"2021-04-10T12:30:07+10:00","datePublished":"2021-04-10T12:30:07+10:00","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/express-https-server/"},"@type":"BlogPosting","description":"In this post we’ll look at how to add TLS to an NodeJS express HTTP server.","url":"/posts/express-https-server/","headline":"NodeJS Express HTTPS Server","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>OpenSSL Testing a Cipher Suite | Node Security
+  <title>NodeJS Express HTTPS Server | Node Security
   </title>
 
   <!--
@@ -297,7 +297,7 @@
       
 
         
-          <span>OpenSSL Testing a Cipher Suite</span>
+          <span>NodeJS Express HTTPS Server</span>
 
         
 
@@ -353,20 +353,6 @@
 
 
 
-  
-
-  
-
-  <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
-  
-  
-
-  
-
-  
-
-
-
 <!-- return -->
 <div class="row">
 
@@ -374,7 +360,7 @@
 
     <div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
 
-      <h1 data-toc-skip>OpenSSL Testing a Cipher Suite</h1>
+      <h1 data-toc-skip>NodeJS Express HTTPS Server</h1>
 
       <div class="post-meta text-muted d-flex flex-column">
         <!-- Published date and author -->
@@ -395,7 +381,7 @@
   
     data-toggle="tooltip"
     data-placement="bottom"
-    title="Tue, Apr  6, 2021,  7:46 PM +1000"
+    title="Sat, Apr 10, 2021, 12:30 PM +1000"
   
 
   
@@ -405,10 +391,10 @@
   
 
   
-    Apr  6
+    Apr 10
   
 
-  <i class="unloaded">2021-04-06T19:46:40+10:00</i>
+  <i class="unloaded">2021-04-10T12:30:07+10:00</i>
 
 </span>
 
@@ -416,39 +402,6 @@
 
         <div>
           <!-- lastmod -->
-          
-          <span>
-            <!--
-  Date format snippet
-  See: /assets/js/_utils/timeage.js
--->
-
-
-
-
-
-<span class="timeago lastmod"
-  
-    data-toggle="tooltip"
-    data-placement="bottom"
-    title="Thu, Apr  8, 2021,  8:03 PM +1000"
-  
-
-  prefix="Updated "
-   >
-
-  
-  
-
-  
-    Apr  8
-  
-
-  <i class="unloaded">2021-04-08T20:03:02+10:00</i>
-
-</span>
-
-          </span>
           
 
           <!-- read time -->
@@ -466,7 +419,7 @@
 
 
 <!-- return element -->
-<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="169 words">1 min</span>
+<span class="readtime" data-toggle="tooltip" data-placement="bottom" title="416 words">2 min</span>
 
 
           <!-- page views -->
@@ -480,47 +433,171 @@
 
         
 
-        <p>In this post we’ll look at how to test whether a server supports a certain cipher suite when using TLS.</p>
+        <p>In this post we’ll look at how to add TLS to an NodeJS <a href="https://www.npmjs.com/package/express">express</a> HTTP server.</p>
+
+<p>This post will assume that you already know how to setup a HTTP server using express. If you don’t know how to, you can learn how to do it <a href="/posts/express-http-server/">here</a>.</p>
 
 <ol>
-  <li><a href="#testing-ciphers-for-tlsv12-below">Testing Ciphers for TLSv1.2 &amp; Below</a>
+  <li><a href="#server-options">Server Options</a></li>
+  <li><a href="#creating-the-server">Creating the Server</a></li>
+  <li><a href="#hardened-tls-configuration">Hardened TLS Configuration</a>
     <ul>
-      <li><a href="#testing-other-tls-versions">Testing Other TLS Versions</a></li>
+      <li><a href="#hardened-configuration-example">Hardened Configuration Example</a></li>
     </ul>
   </li>
-  <li><a href="#testing-tlsv13-ciphers">Testing TLSv1.3 Ciphers</a></li>
 </ol>
 
-<p>Below we have the SSLScan results of <code class="language-plaintext highlighter-rouge">github.com</code>. Let’s see how to verify if a certain cipher works.</p>
+<h1 id="server-options">Server Options</h1>
+<p>To add TLS to our server we first need to define an object containing some options:</p>
 
-<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/certificates/sslscan-1.png" alt="" /></p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">serverOptions</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="c1">// Certificate(s) &amp; Key(s)</span>
+	<span class="na">cert</span><span class="p">:</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">'</span><span class="s1">certs/host.crt</span><span class="dl">'</span><span class="p">)),</span>
+	<span class="na">key</span><span class="p">:</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">'</span><span class="s1">certs/host.key</span><span class="dl">'</span><span class="p">)),</span>
 
-<h1 id="testing-ciphers-for-tlsv12--below">Testing Ciphers for TLSv1.2 &amp; Below</h1>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-</pre></td><td class="code"><pre>openssl s_client <span class="nt">-connect</span> github.com:443 <span class="nt">-tls1_2</span> <span class="nt">-cipher</span> AES128-SHA256
+	<span class="c1">// Optional: TLS Versions</span>
+	<span class="na">maxVersion</span><span class="p">:</span> <span class="dl">'</span><span class="s1">TLSv1.3</span><span class="dl">'</span><span class="p">,</span>
+	<span class="na">minVersion</span><span class="p">:</span> <span class="dl">'</span><span class="s1">TLSv1.2</span><span class="dl">'</span>
+<span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></figure>
 
-<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/certificates/sslscan-2.png" alt="" /></p>
+<h1 id="creating-the-server">Creating the Server</h1>
+<p>We only need to modify one other line of code to enable TLS:</p>
 
-<h2 id="testing-other-tls-versions">Testing Other TLS Versions</h2>
-<p>If you want to test ciphers for other versions of TLS such as v1.0 &amp; v1.1, you should replace <code class="language-plaintext highlighter-rouge">-tls1_2</code> in the above command with <code class="language-plaintext highlighter-rouge">-tls1</code> and <code class="language-plaintext highlighter-rouge">-tls1_1</code> respectively.</p>
-
-<h1 id="testing-tlsv13-ciphers">Testing TLSv1.3 Ciphers</h1>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-</pre></td><td class="code"><pre>openssl s_client <span class="nt">-connect</span> github.com:443 <span class="nt">-ciphersuites</span> TLS_AES_128_GCM_SHA256
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">https</span><span class="dl">'</span><span class="p">).</span><span class="nx">Server</span><span class="p">(</span><span class="nx">serverOptions</span><span class="p">,</span> <span class="nx">app</span><span class="p">);</span>
 </pre></td></tr></tbody></table></code></pre></figure>
 
-<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="/assets/certificates/sslscan-3.png" alt="" /></p>
+<p>The entire code for a simple HTTPS server looks like this:</p>
 
-<p>When testing a TLSv1.3 cipher you shouldn’t need to specify the TLS version. If the wrong version is being used you can specify TLSv1.3 by using the <code class="language-plaintext highlighter-rouge">-tls1_3</code> flag.</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">express</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">path</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
 
-<h1 id="notes">Notes</h1>
+<span class="kd">const</span> <span class="nx">PORT</span> <span class="o">=</span> <span class="mi">4443</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">serverOptions</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="c1">// Certificate(s) &amp; Key(s)</span>
+	<span class="na">cert</span><span class="p">:</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">'</span><span class="s1">certs/host.crt</span><span class="dl">'</span><span class="p">)),</span>
+	<span class="na">key</span><span class="p">:</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">'</span><span class="s1">certs/host.key</span><span class="dl">'</span><span class="p">)),</span>
+
+	<span class="c1">// TLS Versions</span>
+	<span class="na">maxVersion</span><span class="p">:</span> <span class="dl">'</span><span class="s1">TLSv1.3</span><span class="dl">'</span><span class="p">,</span>
+	<span class="na">minVersion</span><span class="p">:</span> <span class="dl">'</span><span class="s1">TLSv1.2</span><span class="dl">'</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">https</span><span class="dl">'</span><span class="p">).</span><span class="nx">Server</span><span class="p">(</span><span class="nx">serverOptions</span><span class="p">,</span> <span class="nx">app</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="nx">res</span><span class="p">.</span><span class="nx">sendFile</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">'</span><span class="s1">index.html</span><span class="dl">'</span><span class="p">));</span>
+<span class="p">});</span>
+
+<span class="c1">// Start the Server</span>
+<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">PORT</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`[-] Server Listening on Port </span><span class="p">${</span><span class="nx">PORT</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h1 id="hardened-tls-configuration">Hardened TLS Configuration</h1>
+<p>For a more secure TLS configuration you should do the following:</p>
 <ul>
-  <li>Make sure you specific a port number at the end of the host name.</li>
-  <li>Depending on the version of OpenSSL you have installed, certain ciphers may or may not be supported.</li>
+  <li>Disable all older/legacy versions of TLS.
+    <ul>
+      <li>Use <code class="language-plaintext highlighter-rouge">minVersion</code> and <code class="language-plaintext highlighter-rouge">maxVersion</code> to specify the supported TLS versions.</li>
+    </ul>
+  </li>
+  <li>Disable all insecure &amp; old cipher suites.
+    <ul>
+      <li>Use <code class="language-plaintext highlighter-rouge">ciphers</code> to specify which cipher suites should be supported.</li>
+    </ul>
+  </li>
+  <li>Disable all but the most secure Elliptic Curves for the key exchange.
+    <ul>
+      <li>Use <code class="language-plaintext highlighter-rouge">ecdhCurve</code> to specify which curves should be supported for the Key Exchange.</li>
+    </ul>
+  </li>
+  <li>Disable all signature algorithms that don’t use strong hash functions.
+    <ul>
+      <li>Use <code class="language-plaintext highlighter-rouge">sigalgs</code> to specify which Server Signature Algorithms should be supported.</li>
+      <li><strong>NOTE</strong> Supported Signature Algorithms will vary depending on the type of certificate you are using! Learn more about Server Signature algorithms <a href="/posts/tls-server-signature-algorithm/">here</a>.</li>
+    </ul>
+  </li>
 </ul>
+
+<h2 id="hardened-configuration-example">Hardened Configuration Example</h2>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="kd">const</span> <span class="nx">serverOptions</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="c1">// Certificate(s) &amp; Key(s)</span>
+	<span class="na">cert</span><span class="p">:</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">'</span><span class="s1">certs/host.crt</span><span class="dl">'</span><span class="p">)),</span>
+	<span class="na">key</span><span class="p">:</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">'</span><span class="s1">certs/host.key</span><span class="dl">'</span><span class="p">)),</span>
+
+	<span class="c1">// TLS Versions</span>
+	<span class="na">maxVersion</span><span class="p">:</span> <span class="dl">'</span><span class="s1">TLSv1.3</span><span class="dl">'</span><span class="p">,</span>
+	<span class="na">minVersion</span><span class="p">:</span> <span class="dl">'</span><span class="s1">TLSv1.3</span><span class="dl">'</span><span class="p">,</span>
+
+	<span class="c1">// Hardened configuration</span>
+	<span class="na">ciphers</span><span class="p">:</span> <span class="dl">'</span><span class="s1">TLS_AES_256_GCM_SHA384:TLS_AES_128_GCM_SHA256</span><span class="dl">'</span><span class="p">,</span>
+	<span class="na">ecdhCurve</span><span class="p">:</span> <span class="dl">'</span><span class="s1">P-521:P-384</span><span class="dl">'</span><span class="p">,</span>
+	<span class="na">sigalgs</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ecdsa_secp384r1_sha384</span><span class="dl">'</span><span class="p">,</span>
+
+	<span class="c1">// Attempt to use server cipher suite preference instead of clients</span>
+	<span class="na">honorCipherOrder</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
 
 
       </div>
@@ -532,8 +609,8 @@
         <div class="post-meta mb-3">
           <i class="far fa-folder-open fa-fw mr-1"></i>
           
-            <a href='/categories/security/'>security</a>,
-            <a href='/categories/certificates/'>certificates</a>
+            <a href='/categories/javascript/'>javascript</a>,
+            <a href='/categories/nodejs/'>nodejs</a>
         </div>
         
 
@@ -542,20 +619,26 @@
         <div class="post-tags">
           <i class="fa fa-tags fa-fw mr-1"></i>
           
-          <a href="/tags/security/"
-            class="post-tag no-text-decoration" >security</a>
+          <a href="/tags/javascript/"
+            class="post-tag no-text-decoration" >javascript</a>
           
-          <a href="/tags/cryptography/"
-            class="post-tag no-text-decoration" >cryptography</a>
+          <a href="/tags/web/"
+            class="post-tag no-text-decoration" >web</a>
           
-          <a href="/tags/openssl/"
-            class="post-tag no-text-decoration" >openssl</a>
+          <a href="/tags/https/"
+            class="post-tag no-text-decoration" >https</a>
           
-          <a href="/tags/cipher/"
-            class="post-tag no-text-decoration" >cipher</a>
+          <a href="/tags/http/"
+            class="post-tag no-text-decoration" >http</a>
           
-          <a href="/tags/ciphersuite/"
-            class="post-tag no-text-decoration" >ciphersuite</a>
+          <a href="/tags/nodejs/"
+            class="post-tag no-text-decoration" >nodejs</a>
+          
+          <a href="/tags/server/"
+            class="post-tag no-text-decoration" >server</a>
+          
+          <a href="/tags/express/"
+            class="post-tag no-text-decoration" >express</a>
           
           </div>
         
@@ -582,19 +665,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=OpenSSL Testing a Cipher Suite - Node Security&url=/posts/openssl-testing-cipher-suite/" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=NodeJS Express HTTPS Server - Node Security&url=/posts/express-https-server/" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=OpenSSL Testing a Cipher Suite - Node Security&u=/posts/openssl-testing-cipher-suite/" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=NodeJS Express HTTPS Server - Node Security&u=/posts/express-https-server/" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://telegram.me/share?text=OpenSSL Testing a Cipher Suite - Node Security&url=/posts/openssl-testing-cipher-suite/" data-toggle="tooltip" data-placement="top"
+        <a href="https://telegram.me/share?text=NodeJS Express HTTPS Server - Node Security&url=/posts/express-https-server/" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -1294,98 +1377,98 @@
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
   
 
   
@@ -1420,7 +1503,7 @@
       
       
       <div class="card">
-        <a href="/posts/openssl-testing-signature-algorithm/">
+        <a href="/posts/express-http-server/">
           <div class="card-body">
             <!--
   Date format snippet
@@ -1441,14 +1524,14 @@
   
 
   
-    Apr  7
+    Apr  9
   
 
-  <i class="unloaded">2021-04-07T00:44:00+10:00</i>
+  <i class="unloaded">2021-04-09T17:32:40+10:00</i>
 
 </span>
 
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>OpenSSL Testing a Signature Algorithm</h3>
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>NodeJS Express HTTP Server</h3>
             <div class="text-muted small">
               <p>
                 
@@ -1457,12 +1540,18 @@
 
 
 
-                In this post we’ll look at how to test whether a server supports a certain signature algorithm when using TLS.
+                In this post we’ll look at how to build a simple HTTP server in NodeJS using the express framework.
 
 
-  Testing RSA PKCS1 Signature Algorithm
-  Testing RSA PSS RSAE Signature Algorithm
- ...
+  Server Setup
+    
+      Required Packages
+      Basic Setup
+    
+  
+  Express Basics
+    
+   ...
               </p>
             </div>
           </div>
@@ -1472,7 +1561,7 @@
       
       
       <div class="card">
-        <a href="/posts/openssl-creating-a-ca/">
+        <a href="/posts/javascript-fetch/">
           <div class="card-body">
             <!--
   Date format snippet
@@ -1493,14 +1582,14 @@
   
 
   
-    Apr  7
+    Apr  9
   
 
-  <i class="unloaded">2021-04-07T19:17:22+10:00</i>
+  <i class="unloaded">2021-04-09T17:32:40+10:00</i>
 
 </span>
 
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>OpenSSL Creating a Certificate Authority (CA)</h3>
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>JavaScript Fetch</h3>
             <div class="text-muted small">
               <p>
                 
@@ -1509,13 +1598,14 @@
 
 
 
-                In this post we’ll look at how to create our own Certificate Authority (CA) using OpenSSL.
+                In this post we’ll look at how to use the fetch command in JavaScript in the browser with some common use cases and examples.
 
 
-  Generating a Private Key
+  Making Requests
     
-      List OpenSSL Support Elliptic Curves
-      Elliptic Curve Private ...
+      GET Request
+      POST Request
+      Inc...
               </p>
             </div>
           </div>
@@ -1525,7 +1615,7 @@
       
       
       <div class="card">
-        <a href="/posts/openssl-creating-a-host-certificate/">
+        <a href="/posts/nodejs-crypto/">
           <div class="card-body">
             <!--
   Date format snippet
@@ -1546,14 +1636,14 @@
   
 
   
-    Apr  7
+    Apr  6
   
 
-  <i class="unloaded">2021-04-07T21:03:48+10:00</i>
+  <i class="unloaded">2021-04-06T18:37:40+10:00</i>
 
 </span>
 
-            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>OpenSSL Creating a Host Certificate</h3>
+            <h3 class="pt-0 mt-1 mb-3" data-toc-skip>NodeJS Crypto Module</h3>
             <div class="text-muted small">
               <p>
                 
@@ -1562,9 +1652,7 @@
 
 
 
-                In this post we’ll look at how to create our own Host Certificates using OpenSSL. These certificates can be used on web-servers for enabling TLS.
-
-A valid CA Certificate and Private key will be req...
+                In this post we’ll look at how to use some features of the crypto library built into NodeJS. We’ll look at how to do symmetric encryption (AES), hashing strings and files, and finally ECDH (Ellipti...
               </p>
             </div>
           </div>
@@ -1582,17 +1670,17 @@ A valid CA Certificate and Private key will be req...
 
 <div class="post-navigation d-flex justify-content-between">
   
-  <a href="/posts/nodejs-crypto/" class="btn btn-outline-primary"
+  <a href="/posts/express-http-server/" class="btn btn-outline-primary"
     prompt="Older">
-    <p>NodeJS Crypto Module</p>
+    <p>NodeJS Express HTTP Server</p>
   </a>
   
 
   
-  <a href="/posts/openssl-testing-signature-algorithm/" class="btn btn-outline-primary"
+  <span class="btn btn-outline-primary disabled"
     prompt="Newer">
-    <p>OpenSSL Testing a Signature Algorithm</p>
-  </a>
+    <p>-</p>
+  </span>
   
 
 </div>
@@ -1606,18 +1694,6 @@ A valid CA Certificate and Private key will be req...
 
 </div> <!-- .row -->
 
-
-
-  <!--
-  image lazy load: https://github.com/ApoorvSaxena/lozad.js
--->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
-
-<script type="text/javascript">
-  const imgs = document.querySelectorAll('.post-content img');
-  const observer = lozad(imgs);
-  observer.observe();
-</script>
 
 
 
