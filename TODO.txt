@@ -1,0 +1,17 @@
+From Most to Least Important:
+ - API Fuzzing payloads (mainly bad chars & strings).
+ - Authenticated Scanning with Nikto (proxy through Burp, add cookies/JWT)
+ - JavaScript Tips (Object.keys, Object.values, Object.entries, Array.isArray, etc).
+ - Update OPTIONS post (add stuff about GET requests, or say whether it's the same or different).
+ - Cross-Site WebSocket Hijacking, how to test for it.
+ - External info gathering.
+ - Cookies, Ports & Sub-domains (and how they interact).
+ - Advanced CORS (link to OPTIONS post).
+ - CSRF Token Bypass with Poorly configured CORS.
+ - Pub & Priv key pair to PKCS12 in OpenSSL.
+ - Electron Quick Start & Boilerplate.
+ - Express Cert Mutual Auth.
+ - Metasploit SMB login.
+ - Delaunay Triangulation.
+
+ 
